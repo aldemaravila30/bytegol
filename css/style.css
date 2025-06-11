@@ -1,0 +1,1173 @@
+/*
+================================================
+--- HOJA DE ESTILO PROFESIONAL PARA RED SOCIAL ---
+--- Autor: Asistente de Programación          ---
+--- Versión: 2.1                              ---
+================================================
+*/
+
+/* --- 1. VARIABLES Y CONFIGURACIÓN GLOBAL --- */
+:root {
+    --primary-color: #1877f2; /* Azul Facebook */
+    --primary-hover: #166fe5;
+    --secondary-text: #65676b; /* Gris texto secundario */
+    --background-color: #f0f2f5; /* Fondo de la página */
+    --container-background: #ffffff; /* Fondo de contenedores (posts, forms) */
+    --divider-color: #e4e6eb; /* Líneas divisorias */
+    --success-bg: #e7f3ff;
+    --success-border: #a8d5ff;
+    --success-text: #1565c0;
+    --error-bg: #ffebee;
+    --error-border: #ffcdd2;
+    --error-text: #d32f2f;
+    --notification-color: #fa383e; /* Rojo notificaciones */
+    --font-family: 'Segoe UI', Helvetica, Arial, sans-serif;
+    --border-radius: 8px;
+    --box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1), 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* --- 2. RESET Y ESTILOS BASE --- */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: var(--font-family);
+    background-color: var(--background-color);
+    color: #1c1e21; /* Texto principal */
+    line-height: 1.4;
+    -webkit-font-smoothing: antialiased; /* Mejorar renderizado de fuentes */
+    text-rendering: optimizeLegibility;
+}
+
+a {
+    text-decoration: none;
+    color: var(--primary-color);
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+button, input[type="submit"] {
+    font-family: inherit;
+    font-size: inherit;
+    cursor: pointer;
+}
+
+/* --- 3. LAYOUT Y CONTENEDORES --- */
+.container {
+    max-width: 680px;
+    margin: 20px auto;
+    padding: 0 20px;
+}
+
+.header {
+    background-color: var(--container-background);
+    padding: 10px 20px;
+    box-shadow: var(--box-shadow);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid var(--divider-color);
+}
+
+.logo {
+    font-size: 2rem;
+    font-weight: bold;
+    color: var(--primary-color);
+}
+
+/* --- 4. NAVEGACIÓN --- */
+.nav {
+    display: flex;
+    justify-content: center;
+    background-color: var(--container-background);
+    padding: 10px;
+    margin-bottom: 20px;
+    box-shadow: var(--box-shadow);
+    border-radius: var(--border-radius);
+}
+
+.nav a {
+    margin: 0 15px;
+    text-decoration: none;
+    color: var(--secondary-text);
+    font-weight: 600;
+    padding: 8px 15px;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.nav a:hover {
+    background-color: var(--background-color);
+    color: #1c1e21; /* Texto más oscuro al pasar el ratón */
+    text-decoration: none;
+}
+
+.nav a.admin-link {
+    color: var(--error-text);
+}
+
+.nav a.admin-link:hover {
+    background-color: var(--error-bg);
+}
+
+
+.notification-badge {
+    background-color: var(--notification-color);
+    color: white;
+    border-radius: 50%;
+    width: 22px;
+    height: 22px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 12px;
+    font-weight: bold;
+    vertical-align: super; /* Para que quede un poco más arriba */
+    margin-left: 5px;
+}
+
+.logout-button {
+    background-color: #f44336;
+    color: white;
+    padding: 8px 15px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 600;
+    transition: background-color 0.2s ease;
+}
+
+.logout-button:hover {
+    background-color: #d32f2f;
+    text-decoration: none;
+}
+
+/* --- 5. MENSAJES Y ALERTA (EXITO Y ERROR) --- */
+.success, .error {
+    padding: 15px;
+    border-radius: var(--border-radius);
+    margin-bottom: 20px;
+    border: 1px solid;
+    font-weight: 500;
+    text-align: center;
+}
+
+.success {
+    color: var(--success-text);
+    background-color: var(--success-bg);
+    border-color: var(--success-border);
+}
+
+.error {
+    color: var(--error-text);
+    background-color: var(--error-bg);
+    border-color: var(--error-border);
+}
+
+/* --- 6. FORMULARIO DE PUBLICACIÓN --- */
+.post-form {
+    background-color: var(--container-background);
+    border-radius: var(--border-radius);
+    padding: 15px;
+    margin-bottom: 20px;
+    box-shadow: var(--box-shadow);
+}
+
+.post-form textarea {
+    width: 100%;
+    min-height: 80px;
+    padding: 12px;
+    border: none; /* Quitamos el borde para un look más limpio */
+    border-radius: 6px;
+    resize: vertical;
+    margin-bottom: 10px;
+    font-family: inherit;
+    font-size: 1.1rem;
+    background-color: var(--background-color);
+    transition: box-shadow 0.2s ease;
+}
+
+.post-form textarea:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px var(--primary-color);
+}
+
+.post-form-actions {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.post-form button[type="submit"] {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 6px;
+    font-weight: 600;
+    transition: background-color 0.2s ease;
+    min-width: 100px; /* Para que el botón no sea demasiado pequeño */
+}
+
+.post-form button[type="submit"]:hover {
+    background-color: var(--primary-hover);
+}
+
+.attach-btn {
+    background: none;
+    border: none;
+    color: var(--secondary-text);
+    cursor: pointer;
+    padding: 8px 12px; /* Ajustado para mejor área de click */
+    border-radius: 6px; /* Cuadrado con bordes redondeados */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    transition: background-color 0.2s ease;
+    margin-right: 10px; /* Espacio entre el botón y el resto */
+}
+
+.attach-btn:hover {
+    background-color: #e0e0e0;
+}
+
+.file-input {
+    display: none;
+}
+
+/* --- 7. PUBLICACIONES (POSTS) --- */
+.post {
+    background-color: var(--container-background);
+    border-radius: var(--border-radius);
+    padding: 15px;
+    margin-bottom: 20px;
+    box-shadow: var(--box-shadow);
+    position: relative; /* Para posicionar el menú de opciones */
+}
+
+.post-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.post-profile-picture {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 12px;
+    border: 1px solid var(--divider-color); /* Borde sutil */
+}
+
+.post-author {
+    font-weight: 600;
+    color: #050505;
+    text-decoration: none;
+    font-size: 1.1rem;
+}
+
+.post-author:hover {
+    text-decoration: underline;
+}
+
+.post-date {
+    color: var(--secondary-text);
+    font-size: 0.8rem;
+    margin-top: 2px;
+}
+
+.post-content {
+    margin-bottom: 15px;
+    line-height: 1.5;
+    word-wrap: break-word;
+    white-space: pre-wrap; /* Para respetar saltos de línea */
+}
+
+.no-posts-message {
+    text-align: center;
+    color: var(--secondary-text);
+    padding: 30px 0;
+    font-size: 1.1rem;
+}
+
+.post-image {
+    margin-top: 10px;
+    text-align: center; /* Centrar imagen si es más pequeña */
+}
+
+.post-image img {
+    max-width: 100%;
+    border-radius: var(--border-radius);
+    height: auto; /* Asegura que la altura se ajuste automáticamente */
+    display: block; /* Elimina espacio extra debajo de la imagen */
+    margin: 0 auto; /* Centrar la imagen */
+}
+
+.post-file, .comment-file {
+    margin-top: 10px;
+    padding: 12px;
+    background-color: var(--background-color);
+    border-radius: 6px;
+    border: 1px solid var(--divider-color);
+    display: inline-block; /* Para que el div no ocupe todo el ancho si el contenido es corto */
+}
+
+.post-file a, .comment-file a {
+    text-decoration: none;
+    color: #333;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 500;
+}
+
+.post-file a:hover, .comment-file a:hover {
+    color: var(--primary-color);
+}
+
+/* --- 8. ACCIONES DE PUBLICACIÓN (LIKE, COMMENT) --- */
+.post-actions {
+    display: flex;
+    justify-content: space-around;
+    padding-top: 10px;
+    margin-top: 15px;
+    border-top: 1px solid var(--divider-color);
+}
+
+.like-btn, .comment-btn {
+    background: none;
+    border: none;
+    color: var(--secondary-text);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 12px;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    flex: 1;
+    justify-content: center;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.like-btn:hover, .comment-btn:hover {
+    background-color: var(--background-color);
+}
+
+.like-btn.liked {
+    color: var(--primary-color);
+}
+
+.like-btn .fas, .comment-btn .fas {
+    font-size: 1.1rem; /* Icono un poco más pequeño */
+}
+
+/* --- 9. SECCIÓN DE COMENTARIOS --- */
+.comments-section {
+    margin-top: 15px;
+    padding-top: 10px;
+    border-top: 1px solid var(--divider-color);
+}
+
+.comment-form-container { /* Nuevo contenedor para el formulario de comentario */
+    padding: 10px 0;
+    border-bottom: 1px solid var(--divider-color);
+    margin-bottom: 15px;
+}
+
+.comment-form {
+    display: flex;
+    gap: 10px;
+    align-items: flex-end; /* Alinear items abajo para que el textarea crezca hacia arriba */
+}
+
+.comment-input {
+    flex: 1;
+    padding: 10px 15px;
+    border: 1px solid #ccd0d5;
+    border-radius: 20px;
+    background-color: var(--background-color);
+    resize: none; /* Deshabilitar resize manual */
+    overflow: hidden; /* Ocultar scrollbar */
+    min-height: 40px; /* Altura mínima para el input */
+    line-height: 1.4;
+    padding-top: 10px; /* Padding extra para el ícono de archivo */
+    padding-bottom: 10px;
+    font-family: inherit;
+    font-size: 0.95rem;
+}
+.comment-input:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+.comment-form .attach-btn { /* Estilos específicos para el botón de adjuntar en comentarios */
+    font-size: 1rem;
+    padding: 5px 8px;
+}
+
+.comment-submit {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    transition: background-color 0.2s ease;
+}
+.comment-submit:hover {
+    background-color: var(--primary-hover);
+}
+
+
+.comment {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 10px;
+    position: relative; /* Para posicionar el menú de opciones del comentario */
+}
+
+.comment-profile {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 1px solid var(--divider-color);
+}
+
+.comment-content-wrapper {
+    background-color: var(--background-color);
+    padding: 8px 12px;
+    border-radius: 18px;
+    flex: 1;
+    word-wrap: break-word;
+    min-width: 0; /* Permite que el contenido se encoja correctamente */
+}
+
+.comment-author {
+    font-weight: bold; /* Cambiado de 600 a bold para mayor impacto */
+    color: #333; /* O el color de tus enlaces principales */
+    text-decoration: none;
+    margin-right: 5px; /* Espacio entre el nombre y la fecha */
+}
+
+.comment-author:hover {
+    text-decoration: underline;
+}
+
+.comment-date {
+    font-size: 0.8em;
+    color: #888;
+}
+
+.comment-text {
+    font-size: 0.95rem;
+    line-height: 1.4;
+    white-space: pre-wrap; /* Para respetar saltos de línea */
+}
+
+.comment-image {
+    margin-top: 8px;
+    max-width: 100%; /* Permitir que la imagen se ajuste */
+    height: auto;
+    border-radius: var(--border-radius);
+    display: block; /* Elimina espacio extra debajo de la imagen */
+}
+
+.no-comments-message {
+    text-align: center;
+    color: var(--secondary-text);
+    padding: 20px 0;
+    font-size: 0.95rem;
+}
+
+/* --- 10. BOTONES Y FORMULARIOS DE EDICIÓN/ELIMINACIÓN (EXISTENTES) --- */
+.edit-form, .edit-comment-form {
+    margin-top: 10px;
+    padding-top: 10px;
+    border-top: 1px solid var(--divider-color);
+}
+
+.edit-form textarea, .edit-comment-textarea {
+    width: 100%;
+    min-height: 80px;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    resize: vertical;
+    font-family: inherit;
+    margin-bottom: 10px;
+    font-size: 0.95rem;
+    background-color: var(--background-color);
+    transition: box-shadow 0.2s ease;
+    overflow: hidden; /* Ocultar scrollbar */
+}
+.edit-form textarea:focus, .edit-comment-textarea:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px var(--primary-color);
+}
+
+.edit-actions, .edit-comment-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 5px;
+}
+
+.save-btn, .cancel-btn {
+    border: none;
+    padding: 8px 15px;
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: background-color 0.2s ease;
+}
+
+.save-btn {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.cancel-btn {
+    background-color: #e4e6eb;
+    color: #333;
+}
+
+.save-btn:hover {
+    background-color: var(--primary-hover);
+}
+
+.cancel-btn:hover {
+    background-color: #d8dbdf;
+}
+
+
+/* --- 10.1 MENÚ DE OPCIONES (Editar/Eliminar) --- */
+.post-options-menu, .comment-options-menu {
+    position: absolute; /* Usamos absolute para posicionar sobre el flujo normal */
+    top: 15px; /* Ajusta según sea necesario */
+    right: 15px; /* Ajusta según sea necesario */
+    z-index: 5; /* Asegura que esté por encima del contenido del post */
+}
+
+/* Estilos para los botones de opciones (tres puntos) - APLICACIÓN DE CAMBIOS */
+.options-toggle-btn,
+.post-options-toggle-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--secondary-text);
+    font-size: 24px; /* Aumentar el tamaño del icono para que sea más visible */
+    padding: 10px 12px; /* Aumentar el área de cliqueo */
+    border-radius: var(--border-radius);
+    transition: background-color 0.2s ease;
+    display: flex; /* Usar flexbox para centrar el icono */
+    flex-direction: column; /* Icono vertical (los tres puntos) - Esto es para la alineación visual, pero el icono debe ser fa-ellipsis-v */
+    justify-content: center;
+    align-items: center;
+    line-height: 1; /* Ayuda a centrar el icono */
+}
+
+.options-toggle-btn:hover,
+.post-options-toggle-btn:hover {
+    background-color: var(--background-color); /* Un ligero cambio de fondo al pasar el ratón */
+}
+
+/* Contenedor del menú desplegable de opciones (publicaciones y comentarios) - APLICACIÓN DE CAMBIOS */
+.options-dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: var(--container-background);
+    min-width: 160px;
+    box-shadow: var(--box-shadow);
+    z-index: 10;
+    border-radius: var(--border-radius);
+    overflow: hidden; /* Asegura que los bordes redondeados se apliquen bien */
+    right: 0; /* Alinea el menú a la derecha del botón */
+    top: 100%; /* Aparece justo debajo del botón */
+    margin-top: 5px; /* Pequeño espacio entre el botón y el menú */
+}
+
+/* Botones dentro del menú desplegable */
+.options-dropdown-content button {
+    color: var(--secondary-text);
+    padding: 12px 16px;
+    text-decoration: none;
+    display: flex; /* Usar flexbox para alinear icono y texto */
+    align-items: center;
+    gap: 10px; /* Espacio entre el icono y el texto */
+    border: none;
+    background: none;
+    width: 100%; /* Ocupa todo el ancho del dropdown */
+    text-align: left; /* Alinea el texto a la izquierda */
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.options-dropdown-content button:hover {
+    background-color: var(--background-color);
+    color: var(--primary-color);
+}
+
+.options-dropdown-content button i {
+    font-size: 16px; /* Tamaño de los iconos dentro del dropdown */
+}
+
+/* Asegurarse de que el icono de los "tres puntos" sea vertical - NOTA: DEBES CAMBIAR fa-ellipsis-h a fa-ellipsis-v EN TU HTML */
+.options-toggle-btn .fas.fa-ellipsis-v,
+.post-options-toggle-btn .fas.fa-ellipsis-v {
+    font-size: 24px; /* Asegura que el icono sea grande */
+}
+
+/* Opcional: Si no puedes cambiar el HTML y necesitas rotar fa-ellipsis-h para que parezca vertical */
+/* Si usas esto, no necesitas cambiar el HTML, pero fa-ellipsis-v es lo recomendado. */
+/*
+.options-toggle-btn .fas.fa-ellipsis-h,
+.post-options-toggle-btn .fas.fa-ellipsis-h {
+    transform: rotate(90deg);
+    font-size: 24px;
+}
+*/
+
+/* --- 10.2 MODAL DE CONFIRMACIÓN --- */
+.modal {
+    display: none; /* Asegúrate de que esté oculto por defecto */
+    position: fixed; /* Stay in place */
+    z-index: 1001; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    justify-content: center; /* Estas propiedades se aplicarán cuando display sea flex */
+    align-items: center; /* Estas propiedades se aplicarán cuando display sea flex */
+}
+
+.modal-content {
+    background-color: var(--container-background);
+    margin: auto;
+    padding: 30px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    width: 90%;
+    max-width: 400px;
+    position: relative;
+    text-align: center;
+}
+
+.modal-content h3 {
+    margin-bottom: 15px;
+    color: #1c1e21;
+}
+
+.modal-content p {
+    margin-bottom: 25px;
+    color: var(--secondary-text);
+}
+
+.close-button {
+    color: var(--secondary-text);
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close-button:hover,
+.close-button:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.modal-actions {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+/* Reutilizar estilos de botones existentes */
+.modal-actions .cancel-btn {
+    background-color: #e4e6eb;
+    color: #333;
+    padding: 10px 20px;
+    border-radius: 6px;
+    font-weight: 600;
+}
+
+.modal-actions .cancel-btn:hover {
+    background-color: #d8dbdf;
+}
+
+.modal-actions .delete-btn {
+    background-color: var(--error-text);
+    color: white;
+    padding: 10px 20px;
+    border-radius: 6px;
+    font-weight: 600;
+}
+
+.modal-actions .delete-btn:hover {
+    background-color: #a02020;
+}
+
+
+/* --- 11. RESPONSIVE DESIGN --- */
+@media (max-width: 768px) {
+    .container {
+        padding: 0 10px;
+    }
+
+    .header {
+        padding: 10px 15px;
+    }
+
+    .nav {
+        justify-content: space-around;
+        padding: 5px 0;
+    }
+
+    .nav a {
+        margin: 0 5px;
+        padding: 8px;
+    }
+
+    .logo {
+        font-size: 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .nav {
+        flex-wrap: wrap; /* Permite que los elementos pasen a la siguiente línea */
+    }
+
+    .nav a {
+        flex-basis: 45%; /* Ocupa casi la mitad del ancho */
+        justify-content: center;
+        margin-bottom: 5px;
+    }
+
+    .post-actions {
+        flex-direction: column;
+        gap: 8px; /* Espacio entre los botones en columna */
+    }
+
+    .like-btn, .comment-btn {
+        justify-content: center; /* Centrar el contenido de los botones */
+        padding: 10px;
+    }
+
+    .post-form-actions {
+        flex-direction: column;
+        gap: 10px;
+        align-items: stretch; /* Estirar los botones al ancho completo */
+    }
+
+    .post-form .attach-btn {
+        width: 100%;
+        margin-right: 0;
+        justify-content: center;
+    }
+
+    .post-form button[type="submit"] {
+        width: 100%;
+    }
+
+    .modal-actions {
+        flex-direction: column;
+        gap: 10px;
+    }
+}
+/* Estilos para buscar.php */
+.search-section {
+    background-color: var(--container-background);
+    padding: 20px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    margin-bottom: 20px;
+}
+
+.search-form {
+    display: flex;
+    gap: 10px;
+}
+
+.search-form input[type="text"] {
+    flex-grow: 1;
+    padding: 10px 15px;
+    border: 1px solid var(--divider-color);
+    border-radius: var(--border-radius);
+    font-size: 16px;
+}
+
+.search-form button {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: var(--border-radius);
+    padding: 10px 15px;
+    cursor: pointer;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+}
+
+.search-form button:hover {
+    background-color: var(--primary-hover);
+}
+
+.search-results {
+    background-color: var(--container-background);
+    padding: 20px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+}
+
+.user-result {
+    display: flex;
+    align-items: center;
+    padding: 15px 0;
+    border-bottom: 1px solid var(--divider-color);
+}
+
+.user-result:last-child {
+    border-bottom: none;
+}
+
+.user-picture {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 15px;
+    border: 2px solid var(--divider-color);
+}
+
+.user-info {
+    flex-grow: 1;
+}
+
+.user-name a {
+    font-weight: 600;
+    color: var(--primary-color);
+    text-decoration: none;
+    font-size: 1.1em;
+}
+
+.user-name a:hover {
+    text-decoration: underline;
+}
+
+.user-actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.action-button {
+    padding: 8px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 500;
+    text-decoration: none;
+    display: inline-flex; /* Para alinear íconos */
+    align-items: center;
+    gap: 5px;
+}
+
+.primary-button {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.primary-button:hover {
+    background-color: var(--primary-hover);
+}
+
+.secondary-button {
+    background-color: #e0e0e0; /* Un gris claro */
+    color: #333;
+}
+
+.secondary-button:hover {
+    background-color: #d5d5d5;
+}
+
+.default-button {
+    background-color: #f0f2f5;
+    color: var(--secondary-text);
+    border: 1px solid var(--divider-color);
+}
+
+.default-button:hover {
+    background-color: #e4e6eb;
+}
+
+.status-badge {
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 0.9em;
+    font-weight: 500;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.status-success {
+    background-color: #e6ffed; /* Verde claro */
+    color: #28a745; /* Verde oscuro */
+    border: 1px solid #c3e6cb;
+}
+
+.status-info {
+    background-color: #e7f3ff; /* Azul claro */
+    color: #007bff; /* Azul oscuro */
+    border: 1px solid #b8daff;
+}
+
+.status-warning {
+    background-color: #fff3cd; /* Amarillo claro */
+    color: #ffc107; /* Amarillo oscuro */
+    border: 1px solid #ffeeba;
+}
+
+.no-results-message {
+    text-align: center;
+    color: var(--secondary-text);
+    padding: 20px;
+    font-style: italic;
+}
+
+/* Adaptaciones para móviles */
+@media (max-width: 600px) {
+    .user-result {
+        flex-direction: column;
+        align-items: flex-start;
+        text-align: center;
+    }
+
+    .user-picture {
+        margin: 0 auto 10px;
+    }
+
+    .user-info {
+        text-align: center;
+        margin-bottom: 10px;
+    }
+
+    .user-actions {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .action-button {
+        width: 100%;
+        text-align: center;
+        justify-content: center;
+    }
+}
+/* Existing styles from style.css ... */
+
+/* --- 12. ESTILOS ESPECÍFICOS DE LA PÁGINA DE AMIGOS --- */
+.friends-container {
+    max-width: 800px;
+    margin: 20px auto; /* Centrar y dar espacio */
+    padding: 0 20px;
+}
+
+.section {
+    background-color: var(--container-background);
+    border-radius: var(--border-radius);
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: var(--box-shadow);
+}
+
+.section-title {
+    font-size: 1.5rem;
+    color: #1c1e21;
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--divider-color);
+}
+
+.friend-item {
+    display: flex;
+    align-items: center;
+    padding: 15px 0;
+    border-bottom: 1px solid var(--divider-color);
+}
+
+.friend-item:last-child {
+    border-bottom: none; /* Eliminar borde del último elemento */
+}
+
+.friend-picture {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 15px;
+    border: 1px solid var(--divider-color);
+}
+
+.friend-info {
+    flex: 1;
+}
+
+.friend-name a { /* Estilo para el nombre que es un enlace */
+    font-weight: 600;
+    color: var(--primary-color);
+    text-decoration: none;
+    font-size: 1.1em;
+}
+
+.friend-name a:hover {
+    text-decoration: underline;
+}
+
+.friend-email {
+    color: var(--secondary-text);
+    font-size: 0.9em;
+}
+
+.friend-actions {
+    margin-left: 10px;
+    display: flex; /* Para alinear los botones */
+    gap: 10px; /* Espacio entre botones */
+}
+
+.friend-actions form {
+    display: inline-block; /* Para que los formularios no rompan la línea */
+    margin: 0; /* Eliminar márgenes por defecto de form */
+}
+
+/* Reutilizando clases existentes para botones para consistencia */
+.accept-button {
+    background-color: #4CAF50; /* Verde de éxito */
+    color: white;
+    padding: 8px 15px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background-color 0.2s ease;
+}
+
+.accept-button:hover {
+    background-color: #45a049;
+}
+
+.reject-button, .delete-button {
+    background-color: var(--error-text); /* Rojo de error */
+    color: white;
+    padding: 8px 15px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background-color 0.2s ease;
+}
+
+.reject-button:hover, .delete-button:hover {
+    background-color: #d32f2f;
+}
+
+.cancel-button {
+    background-color: #ff9800; /* Naranja para cancelar */
+    color: white;
+    padding: 8px 15px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background-color 0.2s ease;
+}
+
+.cancel-button:hover {
+    background-color: #e68900;
+}
+
+.chat-button {
+    background-color: var(--primary-color); /* Azul principal */
+    color: white;
+    padding: 8px 15px;
+    border-radius: 6px;
+    text-decoration: none;
+    display: inline-block;
+    font-weight: 600;
+    transition: background-color 0.2s ease;
+}
+
+.chat-button:hover {
+    background-color: var(--primary-hover);
+}
+
+/* Reutilizando clases existentes para mensajes de éxito/error */
+/* .success {
+    background-color: var(--success-bg);
+    color: var(--success-text);
+    padding: 15px;
+    border-radius: var(--border-radius);
+    margin-bottom: 20px;
+    border: 1px solid var(--success-border);
+    font-weight: 500;
+    text-align: center;
+} */ /* Esta clase ya existe en style.css, se mantiene así */
+
+/* Media queries para adaptar la página de amigos a pantallas pequeñas */
+@media (max-width: 600px) {
+    .friend-item {
+        flex-direction: column;
+        align-items: flex-start;
+        text-align: center;
+        padding: 15px 0;
+    }
+
+    .friend-picture {
+        margin: 0 auto 10px; /* Centrar la imagen en vista móvil */
+    }
+
+    .friend-info {
+        text-align: center;
+        margin-bottom: 10px;
+    }
+
+    .friend-actions {
+        flex-direction: column;
+        width: 100%;
+        gap: 8px; /* Espacio entre los botones en columna */
+    }
+
+    .friend-actions button, .friend-actions .chat-button {
+        width: 100%;
+        text-align: center;
+        justify-content: center; /* Centrar el texto/ícono en los botones */
+    }
+}

@@ -1,0 +1,372 @@
+/* Estilos Generales */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f2f5;
+    margin: 0;
+    padding: 0;
+}
+
+/* Navegación */
+nav {
+    background-color: #4CAF50;
+    padding: 10px;
+    text-align: center;
+    margin-bottom: 20px; /* Espacio debajo de la nav */
+}
+nav a {
+    color: white;
+    margin: 0 15px;
+    text-decoration: none;
+    font-weight: bold;
+}
+nav a:hover {
+    text-decoration: underline;
+}
+
+/* Contenedor Principal de Admin */
+.admin-container {
+    max-width: 1200px; /* Para usuarios, será ajustado para publicaciones */
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+.admin-container h2 {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #333;
+}
+
+/* Mensajes de Éxito/Error */
+.message {
+    padding: 12px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    font-weight: bold;
+}
+.message.success {
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+}
+.message.error {
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+}
+
+/* --- Estilos para la Tabla de Usuarios (gestionar_usuarios.php) --- */
+.table-users {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+.table-users th, .table-users td {
+    border: 1px solid #e0e0e0;
+    padding: 12px;
+    text-align: left;
+    vertical-align: middle;
+}
+.table-users th {
+    background-color: #f7f7f7;
+    font-weight: bold;
+    color: #555;
+}
+.table-users tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+.table-users tr:hover {
+    background-color: #f1f1f1;
+}
+.user-details {
+    display: flex;
+    align-items: center;
+}
+.user-details img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 15px;
+    border: 1px solid #ddd;
+}
+.user-actions {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    flex-wrap: wrap; /* Permite que los elementos se envuelvan en pantallas pequeñas */
+}
+.user-actions form {
+    display: flex;
+    gap: 5px;
+    align-items: center;
+}
+.user-actions select, .user-actions button {
+    padding: 8px 12px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    cursor: pointer;
+    font-size: 0.9em;
+}
+.user-actions select {
+    background-color: #fff;
+}
+.user-actions button {
+    transition: background-color 0.2s ease;
+}
+.btn-delete {
+    background-color: #dc3545;
+    color: white;
+    border-color: #dc3545;
+}
+.btn-delete:hover {
+    background-color: #c82333;
+    border-color: #bd2130;
+}
+.self-account-label {
+    font-style: italic;
+    color: #777;
+    padding: 8px 12px;
+    background-color: #e9ecef;
+    border-radius: 5px;
+    font-size: 0.9em;
+}
+
+/* --- Estilos para la Tarjeta de Publicación (gestionar_publicaciones.php) --- */
+.post-admin-card {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    margin-bottom: 25px;
+    padding: 20px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+}
+.post-header-info {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+.author-pic {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 12px;
+    border: 1px solid #eee;
+}
+.author-details .author-name {
+    font-weight: bold;
+    color: #333;
+    text-decoration: none;
+}
+.author-details .author-name:hover {
+    text-decoration: underline;
+}
+.author-details .post-date {
+    font-size: 0.8em;
+    color: #777;
+}
+.post-content-admin {
+    margin-bottom: 15px;
+    line-height: 1.6;
+    color: #333;
+    padding-top: 15px;
+    border-top: 1px solid #f0f0f0;
+}
+.post-image-container {
+    margin-top: 15px;
+}
+.post-image-container img {
+    max-width: 100%;
+    max-height: 400px; /* Controla la altura máxima para no ocupar toda la pantalla */
+    height: auto;
+    display: block;
+    border-radius: 8px;
+    cursor: pointer; /* Indica que se puede hacer clic */
+    border: 1px solid #eee;
+}
+.post-actions-admin {
+    text-align: right;
+    margin-top: 15px;
+}
+
+/* --- Estilos para Comentarios --- */
+.comment-section h5 {
+    margin-top: 20px;
+    margin-bottom: 15px;
+    color: #444;
+    border-top: 1px solid #eee;
+    padding-top: 20px;
+}
+.comment-admin {
+    display: flex;
+    align-items: flex-start; /* Alinea arriba para textos largos */
+    background-color: #f9f9f9;
+    border-radius: 5px;
+    padding: 12px;
+    margin-bottom: 10px;
+}
+.commenter-pic {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 10px;
+}
+.comment-body {
+    flex: 1; /* Ocupa el espacio restante */
+}
+.comment-body strong { color: #555; }
+.comment-body span { margin-left: 5px; color: #333; word-break: break-word; }
+.comment-admin form { margin-left: auto; padding-left: 15px; }
+
+/* --- Estilos Responsive --- */
+@media (max-width: 768px) {
+    .admin-container {
+        margin: 10px; /* Menos margen en pantallas pequeñas */
+        padding: 15px; /* Ajustar padding */
+    }
+
+    /* Navegación Responsive */
+    nav {
+        padding: 5px;
+    }
+    nav a {
+        display: block; /* Cada enlace en su propia línea */
+        margin: 5px 0; /* Espacio vertical entre enlaces */
+        padding: 5px; /* Hace que sean más fáciles de tocar */
+        font-size: 0.95em; /* Ligeramente más pequeño */
+    }
+
+    /* Tablas Responsivas (para gestionar_usuarios.php) */
+    .table-users, .table-users thead, .table-users tbody, .table-users th, .table-users td, .table-users tr {
+        display: block;
+    }
+    .table-users thead tr {
+        position: absolute;
+        top: -9999px;
+        left: -9999px;
+    }
+    .table-users tr {
+        border: 1px solid #ddd;
+        margin-bottom: 10px;
+    }
+    .table-users td {
+        border: none;
+        border-bottom: 1px solid #eee;
+        position: relative;
+        padding-left: 50%; /* Espacio para la etiqueta */
+        text-align: right;
+        padding: 8px 10px; /* Ajustar padding de celdas */
+        font-size: 0.9em; /* Ligeramente más pequeño para el contenido */
+    }
+    .table-users td:before {
+        position: absolute;
+        top: 6px;
+        left: 6px;
+        width: 45%;
+        padding-right: 10px;
+        white-space: nowrap;
+        content: attr(data-label); /* Usa el atributo data-label para el encabezado */
+        font-weight: bold;
+        text-align: left;
+        font-size: 0.8em; /* Tamaño de la etiqueta */
+    }
+
+    /* Acciones de usuario en tabla (gestionar_usuarios.php) */
+    .user-actions {
+        flex-direction: column;
+        align-items: stretch; /* Ocupa el ancho completo disponible */
+    }
+    .user-actions form {
+        width: 100%;
+        /* justify-content: flex-start; Si quieres que los elementos de los formularios se alineen a la izquierda dentro del formulario */
+        align-items: stretch; /* Para que los select y botones ocupen el ancho completo del formulario */
+        margin-bottom: 5px; /* Espacio entre formularios */
+    }
+    .user-details {
+        justify-content: flex-start; /* Alinea la foto y nombre a la izquierda */
+        width: 100%; /* Ocupa el ancho completo de la celda */
+    }
+    .user-details img {
+        margin-right: 15px; /* Vuelve al margen derecho original */
+        margin-left: 0;
+    }
+    .self-account-label, .user-actions select, .user-actions button {
+        font-size: 0.85em; /* Un poco más pequeño */
+        padding: 6px 8px; /* Ajustar padding */
+    }
+
+
+    /* Comentarios responsive (gestionar_publicaciones.php) */
+    .comment-admin {
+        flex-wrap: wrap; /* Permite que los elementos se envuelvan */
+        align-items: flex-start; /* Asegura que la foto y texto empiecen arriba */
+        padding: 10px; /* Un poco menos de padding */
+    }
+    .commenter-pic {
+        margin-bottom: 5px; /* Espacio si el botón se envuelve */
+        width: 30px; /* Ligeramente más pequeña la foto en móvil */
+        height: 30px;
+    }
+    .comment-body {
+        flex: none; /* Elimina el flex:1 para que el texto no se estire demasiado */
+        width: calc(100% - 40px); /* Ajusta el ancho para dejar espacio para la foto */
+        margin-left: -40px; /* Mueve el texto hacia la izquierda para alinear con la foto */
+        padding-left: 40px; /* Relleno para el texto del comentario */
+        word-break: break-word; /* Asegura que las palabras largas se rompan */
+    }
+    .comment-admin form {
+        margin-left: auto; /* Mantiene el botón a la derecha */
+        padding-left: 0;
+        margin-top: 10px; /* Espacio entre comentario y botón de eliminar */
+        width: 100%; /* El formulario ocupa todo el ancho */
+        text-align: right; /* El botón se alinea a la derecha */
+    }
+    .comment-admin .btn-delete {
+        width: auto; /* Permite que el botón tome su ancho natural */
+        font-size: 0.75em; /* Un poco más pequeño */
+        padding: 3px 6px;
+    }
+
+    /* Ajustes para la tarjeta de publicación en general */
+    .post-admin-card {
+        padding: 15px; /* Un poco menos de padding */
+    }
+    .author-pic {
+        width: 40px; /* Ligeramente más pequeña la foto en móvil */
+        height: 40px;
+    }
+    .post-content-admin {
+        font-size: 0.95em; /* Un poco más pequeño el texto de la publicación */
+    }
+    .post-actions-admin .btn-delete {
+        font-size: 0.85em; /* Botón de eliminar publicación ligeramente más pequeño */
+        padding: 6px 10px;
+    }
+}
+
+@media (max-width: 480px) { /* Breakpoint adicional para móviles muy pequeños */
+    h2 {
+        font-size: 1.5em; /* Reducir tamaño de títulos */
+    }
+    .message {
+        padding: 10px;
+        font-size: 0.9em;
+    }
+    /* Ajustes para comentarios que podrían ser necesarios en pantallas muy pequeñas */
+    .comment-body {
+        width: 100%; /* Asegura que el cuerpo del comentario ocupe el 100% */
+        margin-left: 0; /* Quita el margen negativo */
+        padding-left: 0; /* Quita el padding */
+    }
+    .commenter-pic {
+        margin-right: 10px; /* Devuelve el margen derecho a la foto */
+        margin-bottom: 0; /* Elimina el margen inferior */
+    }
+    .comment-admin form {
+        text-align: left; /* Alinea el botón a la izquierda si va solo */
+        margin-top: 5px;
+    }
+}
